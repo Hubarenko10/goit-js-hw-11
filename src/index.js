@@ -1,18 +1,18 @@
 import { fetchImages } from './fetchImages';
 import Notiflix from 'notiflix';
-import SimpleLightbox from 'simplelightbox';
+import SimpleLightbox from "simplelightbox";
 import 'simplelightbox/dist/simple-lightbox.min.css';
+
 
 const input = document.querySelector('.search-form-input');
 const btnSearch = document.querySelector('.search-form-button');
 const gallery = document.querySelector('.gallery');
 const btnLoadMore = document.querySelector('.load-more');
 let gallerySimpleLightbox = new SimpleLightbox('.gallery a');
-
-
 btnLoadMore.style.display = 'none';
-
 let pageNumber = 1;
+const perPage = 40;
+
 
 btnSearch.addEventListener('click', e => {
   e.preventDefault();
@@ -30,6 +30,10 @@ btnSearch.addEventListener('click', e => {
           `Hooray! We found ${foundData.totalHits} images.`
         );
         btnLoadMore.style.display = 'block';
+        gallerySimpleLightbox.refresh();
+      }
+      if (foundData.totalHits < perPage) {
+        btnLoadMore.style.display = 'none';
         gallerySimpleLightbox.refresh();
       }
     });
@@ -87,3 +91,4 @@ function cleanGallery() {
   pageNumber = 1;
   btnLoadMore.style.display = 'none';
 }
+

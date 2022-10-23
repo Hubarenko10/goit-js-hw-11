@@ -14,6 +14,7 @@ body {
 }
 
 .search-form-input {
+    margin-right: 10px;
     padding: 10px;
     font-size: 15px;
     border: none;
@@ -25,22 +26,31 @@ body {
     background: #f1f1f1;
 }
 
+.btn_text{
+   display: flex; 
+   justify-content: center;
+}
+
 .search-form-button {
     float: left;
-    width: 50px;
+    width: 70px;
     padding: 10px;
     background: #c3c2c2;
     color: #000;
     font-size: 15px;
     border: none;
+    border-radius: 2px;
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
     border-left: none;
     cursor: pointer;
 }
-
-.search-form-button:hover {
-    background: #c3c2c2ce;
+.search-form-button:hover{
+    background-color: #fff;
+}
+.search-form-button:hover,
+.btn_text:hover {
+    color: #4056b4;
 }
 
 .search-form::after {
